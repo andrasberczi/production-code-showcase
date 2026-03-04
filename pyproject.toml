@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "churn-service"
+version = "0.1.0"
+description = "Minimal churn scoring HTTP service"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=2.0,<4",
+    "numpy>=1.26",
+    "scikit-learn>=1.4",
+    "xgboost>=2.0"
+]
+
+[project.optional-dependencies]
+api = [
+    "fastapi>=0.135.1",
+    "uvicorn[standard]>=0.42",
+]
+
+dev = [
+    "pytest>=9.0.2",
+    "httpx>=0.27",
+    "ruff>=0.3",
+    "black>=26.3.1",
+    "mypy>=1.19.1",
+    "pandas-stubs>=2.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["churn_scorer"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = ["sklearn.*", "xgboost.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: exercises API + scorer + model",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "httpx>=0.27",
+    "ruff>=0.3",
+    "fastapi>=0.135.1",
+    "uvicorn[standard]>=0.42",
+    "black>=26.3.1",
+    "mypy>=1.19.1",
+    "pandas-stubs>=2.0.0",
+]
+
+[tool.uv]
+default-groups = ["dev"]

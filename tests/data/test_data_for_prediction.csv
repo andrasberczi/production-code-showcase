@@ -1,0 +1,11 @@
+id,gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges
+0,Male,0,Yes,Yes,57,Yes,Yes,DSL,No,No,No,No,No,No,Month-to-month,Yes,Credit card (automatic),43.93,3757.96
+1,Female,0,No,No,37,No,No phone service,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,No,Credit card (automatic),111.72,2090.33
+2,Male,1,No,No,68,No,No phone service,DSL,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Electronic check,64.35,380.48
+3,Male,1,No,No,32,No,Yes,No,Yes,Yes,Yes,Yes,Yes,Yes,One year,No,Credit card (automatic),79.55,3862.3
+4,Female,1,Yes,Yes,11,Yes,No phone service,Fiber optic,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,One year,Yes,Electronic check,118.43,7675.47
+5,Male,0,Yes,Yes,3,Yes,Yes,DSL,No,No,No,No,No,No,Month-to-month,Yes,Bank transfer (automatic),54.88,5227.1
+6,Male,1,No,No,68,No,No phone service,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Two year,No,Mailed check,100.94,3974.14
+7,Male,0,Yes,Yes,70,Yes,Yes,Fiber optic,No,No,No,No,No,No,One year,Yes,Mailed check,50.48,903.32
+8,Female,1,No,No,54,No,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Electronic check,99.52,2034.44
+9,Female,0,Yes,Yes,8,Yes,No,Fiber optic,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Credit card (automatic),79.27,2372.3

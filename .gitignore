@@ -1,0 +1,11 @@
+*.DS_store
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+artifacts/
+tests/data/test_results.csv
+tests/data/test_results_scorer.csv
+dist/
+*.egg-info/
