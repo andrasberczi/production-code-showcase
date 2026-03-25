@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import pytest
 
 from churn_scorer.config import TARGET_COLUMN
 from churn_scorer.models.xgboost import xgbClassifier
@@ -26,14 +27,24 @@ def test_fit_returns_auc_in_valid_range() -> None:
     assert 0.0 <= perf["AUC"] <= 1.0
 
 
-def test_predict_adds_target_probabilities() -> None:
+@pytest.fixture
+def trained_model() -> xgbClassifier:
     df = _tiny_training_frame()
     model = xgbClassifier(n_estimators=32, max_depth=2)
     model.fit(df, target_column=TARGET_COLUMN)
-    infer = df.drop(columns=[TARGET_COLUMN]).head(5)
-    out = model.predict(infer)
+    return model
+
+
+def test_predict_adds_target_probabilities(trained_model: xgbClassifier) -> None:
+    infer = _tiny_training_frame().drop(columns=[TARGET_COLUMN]).head(5)
+    out = trained_model.predict(infer)
 
     assert TARGET_COLUMN in out.columns
     assert out[TARGET_COLUMN].between(0.0, 1.0).all()
     assert len(out) == 5
+
+
+def test_predict_does_not_mutate_input(trained_model: xgbClassifier) -> None:
+    infer = _tiny_training_frame().drop(columns=[TARGET_COLUMN]).head(5)
+    trained_model.predict(infer)
     assert TARGET_COLUMN not in infer.columns
