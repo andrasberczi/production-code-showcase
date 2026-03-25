@@ -4,9 +4,9 @@ import pandas as pd
 
 from churn_scorer.config import TARGET_COLUMN, results_uri, training_data_uri
 from churn_scorer.protocols import BinaryClassifier
-from churn_scorer.feature_transformer import FeatureTransformer
-from churn_scorer.models.model_factory import model_factory
-from churn_scorer.table_loader import load_table_from_uri
+from churn_scorer.pipeline.transformer import FeatureTransformer
+from churn_scorer.models.factory import model_factory
+from churn_scorer.pipeline.loader import load_table_from_uri
 
 
 class ChurnScorer:

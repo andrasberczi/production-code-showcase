@@ -1,4 +1,4 @@
-from churn_scorer.models.xgboost_model import xgbClassifier
+from churn_scorer.models.xgboost import xgbClassifier
 from churn_scorer.protocols import BinaryClassifier
 
 

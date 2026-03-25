@@ -1,6 +1,6 @@
 from datetime import datetime
 from churn_scorer.scorer import ChurnScorer
-from churn_scorer.table_loader import load_table_from_uri
+from churn_scorer.pipeline.loader import load_table_from_uri
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 

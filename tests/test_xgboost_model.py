@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 from churn_scorer.config import TARGET_COLUMN
-from churn_scorer.models.xgboost_model import xgbClassifier
+from churn_scorer.models.xgboost import xgbClassifier
 
 
 def _tiny_training_frame() -> pd.DataFrame:

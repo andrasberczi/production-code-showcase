@@ -9,7 +9,7 @@ _TESTS_DATA = Path(__file__).resolve().parent / "data"
 os.environ["CHURN_TRAINING_DATA_URI"] = str(_TESTS_DATA / "test_data_for_train.csv")
 os.environ["CHURN_RESULTS_URI"] = str(_TESTS_DATA / "test_results.csv")
 
-from churn_scorer.api import app
+from churn_scorer.api.routes import app
 
 client = TestClient(app)
 

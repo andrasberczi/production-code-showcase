@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from churn_scorer.feature_transformer import FeatureTransformer
+from churn_scorer.pipeline.transformer import FeatureTransformer
 
 SAMPLE_TRAIN = Path(__file__).resolve().parent / "data" / "test_data_for_train.csv"
 
