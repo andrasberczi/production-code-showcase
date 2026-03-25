@@ -18,21 +18,21 @@ def _tiny_training_frame() -> pd.DataFrame:
     )
 
 
+@pytest.fixture
+def trained_model() -> xgbClassifier:
+    df = _tiny_training_frame()
+    model = xgbClassifier()
+    model.fit(df, target_column=TARGET_COLUMN)
+    return model
+
+
 def test_fit_returns_auc_in_valid_range() -> None:
     df = _tiny_training_frame()
-    model = xgbClassifier(n_estimators=32, max_depth=2)
+    model = xgbClassifier()
     perf = model.fit(df, target_column=TARGET_COLUMN)
 
     assert "AUC" in perf
     assert 0.0 <= perf["AUC"] <= 1.0
-
-
-@pytest.fixture
-def trained_model() -> xgbClassifier:
-    df = _tiny_training_frame()
-    model = xgbClassifier(n_estimators=32, max_depth=2)
-    model.fit(df, target_column=TARGET_COLUMN)
-    return model
 
 
 def test_predict_adds_target_probabilities(trained_model: xgbClassifier) -> None:
